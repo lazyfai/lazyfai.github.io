@@ -16,7 +16,8 @@ twitter_username: lazyfai
 github_username:  lazyfai
 
 # Don't put the time in permalinks
-permalink: /:title/
+# permalink: /:categories/:year/:month/:day/:title.html
+permalink: /:year:month:day/:title/
 
 # Build settings
 markdown: kramdown
