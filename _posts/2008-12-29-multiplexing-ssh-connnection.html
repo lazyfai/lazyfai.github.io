@@ -1,0 +1,13 @@
+---
+layout: post
+title: Multiplexing ssh connnection
+date: '2008-12-29T23:58:00.001+08:00'
+author: Fai Wong
+tags:
+- linux
+modified_time: '2008-12-30T00:00:01.480+08:00'
+blogger_id: tag:blogger.com,1999:blog-8503500.post-1741171695956536578
+blogger_orig_url: http://lazyfai.blogspot.com/2008/12/multiplexing-ssh-connnection.html
+---
+
+For record... we can configured OpenSSH to make shared connections (ie. 1 connection, many ssh shell)<br />http://linuxtoday.com/news_story.php3?ltsn=2008-12-29-003-35-OS-HL<br /><br />Basically add 3 lines in /etc/ssh/ssh_config only:<br />Host *<br />    ControlMaster auto<br />    ControlPath ~/.ssh/master-%r@%h:%p<br /><br />Of course, we can set it to use multiplexing on some domains/hosts only by not using "Host *".

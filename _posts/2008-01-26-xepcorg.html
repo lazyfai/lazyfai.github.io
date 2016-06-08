@@ -1,0 +1,13 @@
+---
+layout: post
+title: "新手必讀 － 如何加入 XEPC.org 軟體庫"
+date: '2008-01-26T14:31:00.000+08:00'
+author: Fai Wong
+tags:
+- eee
+modified_time: '2008-01-26T14:33:25.853+08:00'
+blogger_id: tag:blogger.com,1999:blog-8503500.post-6365959404771107038
+blogger_orig_url: http://lazyfai.blogspot.com/2008/01/xepcorg.html
+---
+
+[同時發佈於 XEPC.org]<br /><br />由於 Eee PC  採用的是一般家庭用戶比較少見的 Linux 系統，<br />所以可能有很多 Linux 新手會遇到更新的問題，今天就出一篇圖文教學，<br />使新手都能輕鬆為你們的 Eee PC 安裝到最新最好的軟體。<br /><br />第一步仍然是經常看到的“打開終端機”，熱鍵是 Ctrl-Alt-T,<br />先按Ctrl和 Alt 不放，再按下T 再放手，終端機大約會在10秒內<br />看到，就如下圖這樣子:<br /><img src="http://pic.xepc.org/fai/post/apt/sources.list-1.png" height="350" width="492" /><br />第二步是變成系統管理者的身分，就是一般稱為 "root" 的用戶，方法如上圖所示，<br />鍵入 "sudo -s"，再輸入你的密碼，注意密碼並不會顯示出來，什至不會<br />有星(*)或其他圖案，輸入之後，指示符會變成紅色的 <font color="red">eeepc-xxx:/home/user&gt;</font><br />第三步是打開文字編輯器，在這裡我們用的是 "pico", 因為我們要修改抓取更新的<br />伺服器位置，所以要修改的是 /etc/apt/sources.list, 如上圖所示鍵入，就可以<br />看到如下面的編輯器畫面了。<br /><img src="http://pic.xepc.org/fai/post/apt/sources.list-2.png" height="350" width="492" /><br />第四步是把內容修改成上圖這個樣子，共兩行。<br />修改好之後，按 Ctrl-X 就可以儲存，檔案名字不用修改，儲存之後退出編輯器，<br />會再看到指示符，像第一張圖一樣。<br /><img src="http://pic.xepc.org/fai/post/apt/sources.list-3.png" height="350" width="492" /><br />最後一步是驗證一下，先檢查一下可不可以上網，如果可以的話，鍵入<br />apt-get update<br />這個指令就是命令你的系統上網抓取最新的軟體的資料，例如版本更新訊息等，<br />如果成功，就會看到和上圖一樣的結果，如果中間有失敗的話，可能是剛才修改<br />檔案時的格式或拼寫錯誤了，再修改一下，留意空格等等就可以。<br /><br />做完這些步驟之後，就可以很方便的抓取我們 XEPC.org 的軟體庫了！

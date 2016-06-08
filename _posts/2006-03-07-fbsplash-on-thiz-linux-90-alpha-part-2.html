@@ -1,0 +1,12 @@
+---
+layout: post
+title: fbsplash on Thiz Linux 9.0 alpha ( part 2 )
+date: '2006-03-07T16:54:00.000+08:00'
+author: Fai Wong
+tags: 
+modified_time: '2006-03-07T16:54:51.790+08:00'
+blogger_id: tag:blogger.com,1999:blog-8503500.post-114172169171456875
+blogger_orig_url: http://lazyfai.blogspot.com/2006/03/fbsplash-on-thiz-linux-90-alpha-part-2.html
+---
+
+After I packaged fbsplash, the author Jean-Damien.Durand@cern.ch released an update, and I tried, it works!<br />Now just need make change to grub menu.lst kernel command line, and then use mkinitramfs instead of mkinitrd and all the things are ready.<br />Kernel command line: <br />video=vesafb:ypan,1024x768-32 splash=silent,theme:tld quiet CONSOLE=/dev/tty1

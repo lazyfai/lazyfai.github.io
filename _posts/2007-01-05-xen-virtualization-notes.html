@@ -1,0 +1,13 @@
+---
+layout: post
+title: xen virtualization notes
+date: '2007-01-05T16:33:00.000+08:00'
+author: Fai Wong
+tags:
+- work
+modified_time: '2007-01-05T16:49:08.985+08:00'
+blogger_id: tag:blogger.com,1999:blog-8503500.post-1231547121596624587
+blogger_orig_url: http://lazyfai.blogspot.com/2007/01/xen-virtualization-notes.html
+---
+
+1. Para-virtualization - host OS and guest OS both need modifications, which makes them work in a co-operating way, very fast but not very flexiable as the guest OS need modifications.<br />2. Full virtualization - guest OS no need modification, but need processor support, can run in very fast speed,flexible but not as fast as para-virtualization.<br />3. Migration - Para-virtualized guest OS can be migrated to other host, but they must have shared storage like NFS for the filesystem image, and xen version need to be the same.<br />4. PAE vs non-PAE - For memory more than 2 Gb, the kernel neded to enasble "highmem" and "pae" support. If the host OS has pae support but the guest doesn't have, the guest OS won't be able to boot and vise vesa.

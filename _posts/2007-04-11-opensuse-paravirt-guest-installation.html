@@ -1,0 +1,13 @@
+---
+layout: post
+title: OpenSUSE paravirt guest installation
+date: '2007-04-11T19:49:00.000+08:00'
+author: Fai Wong
+tags:
+- work
+modified_time: '2007-04-11T19:55:25.321+08:00'
+blogger_id: tag:blogger.com,1999:blog-8503500.post-6733686452034872026
+blogger_orig_url: http://lazyfai.blogspot.com/2007/04/opensuse-paravirt-guest-installation.html
+---
+
+Started to install paravirt guest OpenSUSE 10.2 on RHEL5.<br />The procedure is "quite" straight forward, but the default boot ISO image for SUSE is not xen-capable, so we need to get the kernel-xenpae RPM and the install-initrd RPM, then use a script to extract the kernel and modules from kernel RPM and insert to the initrd for installation use.<br />The script works fine under RHEL5, and now the system is installing from internet, will check if it work tomorrow morning.

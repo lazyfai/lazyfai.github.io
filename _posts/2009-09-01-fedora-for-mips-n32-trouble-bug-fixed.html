@@ -1,0 +1,13 @@
+---
+layout: post
+title: Fedora for MIPS N32 - A trouble bug fixed
+date: '2009-09-01T22:47:00.002+08:00'
+author: Fai Wong
+tags:
+- linux
+modified_time: '2009-09-01T23:03:38.104+08:00'
+blogger_id: tag:blogger.com,1999:blog-8503500.post-5574780511207034627
+blogger_orig_url: http://lazyfai.blogspot.com/2009/09/fedora-for-mips-n32-trouble-bug-fixed.html
+---
+
+After building a lot of Fedora packages on my Loongson 2f box with MIPS N32 ABI, I found that some of the programs just segmentation fault once started. I had no idea on the reason before.<br />Tonight when I was building cups, there is a segmentation fault during build, so I tried to play around with those CFLAGS and LDFLAGS for that small program, and I found that it is due to -fPIE, on x86 platform, we use -pie as CFLAGS and LDFLAGS, but for some other architectures like SPARC (and MIPS) we need to use -fPIE instead, so I tried to look for this option in openssh and xinetd, both fixed  after changing that! So what I need is just to add a condition check in RPM spec files, and I don't even need to find which program requires this, because there is a checking for SPARC already.

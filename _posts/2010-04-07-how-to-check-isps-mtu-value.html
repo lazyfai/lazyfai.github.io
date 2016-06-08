@@ -1,0 +1,14 @@
+---
+layout: post
+title: How to check ISP's MTU value
+date: '2010-04-07T23:31:00.002+08:00'
+author: Fai Wong
+tags:
+- linux
+modified_time: '2010-04-08T01:40:17.850+08:00'
+thumbnail: http://1.bp.blogspot.com/_ZwYFGbHC6Q8/S7zBkONagfI/AAAAAAAAGZA/cTQa6pXw_5Y/s72-c/ping.png
+blogger_id: tag:blogger.com,1999:blog-8503500.post-7702808244566011011
+blogger_orig_url: http://lazyfai.blogspot.com/2010/04/how-to-check-isps-mtu-value.html
+---
+
+In order to set the correct (optimal) value of MTU on PPPoE, we can find out the MTU value of our ISP by ping command with fixed length:<br /><br /><a onblur="try {parent.deselectBloggerImageGracefully();} catch(e) {}" href="http://1.bp.blogspot.com/_ZwYFGbHC6Q8/S7zBkONagfI/AAAAAAAAGZA/cTQa6pXw_5Y/s1600/ping.png"><img style="cursor: pointer; width: 400px; height: 209px;" src="http://1.bp.blogspot.com/_ZwYFGbHC6Q8/S7zBkONagfI/AAAAAAAAGZA/cTQa6pXw_5Y/s400/ping.png" alt="" id="BLOGGER_PHOTO_ID_5457449676500009458" border="0" /></a><br /><br />Command parameters:<br />-M hint<br />Select Path MTU Discovery strategy. hint may be either do (prohibit fragmentation, even local one), want (do PMTU discovery, fragment locally when packet size is large), or dont (do not set DF flag).<br />-c count<br />Stop after sending count ECHO_REQUEST packets.<br />With deadline option, ping waits for count ECHO_REPLY packets, until the timeout expires.<br />-s packetsize<br />Specifies the number of data bytes to be sent. The default is 56, which translates into 64 ICMP data bytes when combined with the 8 bytes of ICMP header data.<br /><br />In my case, it shows that when the packet size is equals to or over 1440, it can't be sent without fragmentation, so MTU should be around 1420-1440.<br /><br /><a onblur="try {parent.deselectBloggerImageGracefully();} catch(e) {}" href="http://1.bp.blogspot.com/_ZwYFGbHC6Q8/S7zDdQGtvxI/AAAAAAAAGZI/WDD8PAbhs6E/s1600/1433.png"><img style="cursor:pointer; cursor:hand;width: 400px; height: 209px;" src="http://1.bp.blogspot.com/_ZwYFGbHC6Q8/S7zDdQGtvxI/AAAAAAAAGZI/WDD8PAbhs6E/s400/1433.png" border="0" alt=""id="BLOGGER_PHOTO_ID_5457451755772952338" /></a><br /><br />After some tests, the ISP MTU is 1432, but in order to set it on router, we need to add 28 (data header size), so the optimal MTU is 1432+28 = 1460 on WAN size on router.

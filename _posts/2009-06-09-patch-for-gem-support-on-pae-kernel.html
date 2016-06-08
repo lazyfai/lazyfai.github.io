@@ -1,0 +1,13 @@
+---
+layout: post
+title: Patch for GEM support on PAE kernel
+date: '2009-06-09T09:54:00.002+08:00'
+author: Fai Wong
+tags:
+- linux
+modified_time: '2009-06-09T10:06:15.636+08:00'
+blogger_id: tag:blogger.com,1999:blog-8503500.post-448963600498751111
+blogger_orig_url: http://lazyfai.blogspot.com/2009/06/patch-for-gem-support-on-pae-kernel.html
+---
+
+My desktop board is Intel based, and with newer Intel XWindow driver, it makes use of kernel GEM feature, but this doesn't work in PAE kernel as I have 4G of memory.<br />Finally someone released a patch for the issue, which ensure the memory allocation is correct for GEM in the kernel.<br />http://www.mail-archive.com/dri-devel@lists.sourceforge.net/msg40319.html

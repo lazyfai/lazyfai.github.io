@@ -1,0 +1,13 @@
+---
+layout: post
+title: Postfix with multiple relay hosts
+date: '2008-12-01T21:24:00.002+08:00'
+author: Fai Wong
+tags:
+- linux
+modified_time: '2008-12-01T21:43:27.512+08:00'
+blogger_id: tag:blogger.com,1999:blog-8503500.post-3467478520513839491
+blogger_orig_url: http://lazyfai.blogspot.com/2008/12/postfix-with-multiple-relay-hosts.html
+---
+
+As I have my mailbox collected in home server, I also have setup SMTP service using postfix on the home server for outgoing email.<br />Netvigator limited the outgoing SMTP port connectivity, I can only connect to smtp.netvigator.com, but for company email, I have to use the company SMTP server in order to send to mailing list addresses.<br />After some trial and error, I failed to set multiple outgoing relay hosts, but finally found a method to do that, by "transpot_maps" parameters and define some addresses/domain vs smtp server hosts, so that postfix will connect to different hosts according to the receiver addresses.<br /><br />http://www.postfix.org/postconf.5.html#transport_maps

@@ -1,0 +1,13 @@
+---
+layout: post
+title: 2011年版的 Chromium OS
+date: '2011-01-25T15:25:00.000+08:00'
+author: Fai Wong
+tags:
+- linux
+modified_time: '2011-01-25T15:25:23.781+08:00'
+blogger_id: tag:blogger.com,1999:blog-8503500.post-4805242491875266164
+blogger_orig_url: http://lazyfai.blogspot.com/2011/01/2011-chromium-os.html
+---
+
+很早就試過第一版的 Chromium OS 了(是中文社區第一人吧?)，因為功能太陽春，所以就放下了。<br />最近 Google 也推出了自家的 Cr-48 小筆電，跑 Chromium OS，看來應該已經變得好用了，所以現在再找回 Chromium OS 的源碼弄一個 Chromium OS 出來看看。<br />其實... 對用戶來說也沒有什麼大變化啦！只是編釋系統完全不同了，現在是基於 Gentoo (www.gentoo.org) 的 portage 系統而不是 Debian (www.debian.org) 的 deb 打包系統。<br />看一看制成品:<br /><hr><img src="http://pic.xepc.org/fai/post/CrOS2011/CrOS-01.png"><br><br />開機後的第一個畫面，選擇語言和網路<br><br /><img src="http://pic.xepc.org/fai/post/CrOS2011/CrOS-02.png"><br><br />首次開機更新系統（估計是安全性更新）<br><br /><img src="http://pic.xepc.org/fai/post/CrOS2011/CrOS-03.png"><br><br />首次開機會叫用戶輸入 Google 帳號，也可以不輸入，只用 Guest 帳號試用<br><br /><img src="http://pic.xepc.org/fai/post/CrOS2011/CrOS-04.png"><br><br />登入畫面， 可以用本地的 Guest 帳號或者 Google 帳號<br><br /><img src="http://pic.xepc.org/fai/post/CrOS2011/CrOS-05.png"><br><br />Guest 帳號不會記錄資料，檔案會在登出後會刪除<br><br /><img src="http://pic.xepc.org/fai/post/CrOS2011/CrOS-06.png"><br><br />也有文字模式可以調試用<br><br /><img src="http://pic.xepc.org/fai/post/CrOS2011/CrOS-07.png"><br><br />登入後就是 Chromium browser 了<br><br /><img src="http://pic.xepc.org/fai/post/CrOS2011/CrOS-08.png"><br><br />因為用的是 Google 帳號，之前在其他機器下載的插件，書簽等都會自動同步<br><br /><img src="http://pic.xepc.org/fai/post/CrOS2011/CrOS-09.png"><br><br />設定頁，和 Chromium browser 基本相同，多了幾頁，其中一頁是設定語言、地區、滑鼠等<br><br /><img src="http://pic.xepc.org/fai/post/CrOS2011/CrOS-10.png"><br><br />網路的設定，功能很簡單，有網線和無線，沒有撥號和VPN等<br><br /><img src="http://pic.xepc.org/fai/post/CrOS2011/CrOS-11.png"><br><br />可以新增或修改用戶帳號<br><br /><img src="http://pic.xepc.org/fai/post/CrOS2011/CrOS-12.png"><br><br />可以看到有關這台機器的操作系統資訊<br><br />至於大家最關心的，可能是中文語言支援吧!<br><br /><img src="http://pic.xepc.org/fai/post/CrOS2011/CrOS-13.png"><br><br />在語言頁中可以加上中文支援，而且已經有拼音、倉頡跟速成輸入法<br><br /><img src="http://pic.xepc.org/fai/post/CrOS2011/CrOS-14.png"><br><br />重新登入之後，界面都變中文了！<br><br /><img src="http://pic.xepc.org/fai/post/CrOS2011/CrOS-15.png"><br><br />輸入輸出也沒問題，香港字也能使用（不過沒有粗口字）<br><br /><hr><br />整體來說跟之前的相差不很遠，只是現在有了 Web Store 的概念，應該會比較容易令一般使用者可以找到（網上）軟件使用。<br /><br />這個新的編釋系統弄出來的 USB 磁碟，用的是 GPT 分區，裡面會有幾個分區，分別是唯讀的根分區(root partition)，一個給OEM廠商用的客制分區(customization partition)，一個是可寫入的儲存數據的分區(stateful partition)，還可以做開發版本，會有多一個開發分區(development partition)，有調試工具。廠商還可以把這個轉換成“還原磁碟”方便用家隨時還原他們的筆電，挺方便的。<br /><br />期待正式的 Chrome Netbook 出產。

@@ -1,0 +1,14 @@
+---
+layout: post
+title: Eee PC 之藍芽支援
+date: '2007-11-14T23:59:00.000+08:00'
+author: Fai Wong
+tags:
+- linux
+- eee
+modified_time: '2007-11-15T00:13:06.930+08:00'
+blogger_id: tag:blogger.com,1999:blog-8503500.post-2061096491037991049
+blogger_orig_url: http://lazyfai.blogspot.com/2007/11/eee-pc_4488.html
+---
+
+［同時張貼於 Blog 及 xepc.org ]<br /><br />在 Eee PC 上，藍芽其實已經有八成的支援了。<br />最可惜的是 Eee PC 本身的系統沒有執行 "dbus" 和 "bluetooth" 服務，還有就是和藍芽電話之間的 "配對" 動作很難做到。<br /><br />要試試看的話可以這樣做, 插入USB藍芽後:<br />1. 開終端機: Ctrl-Alt-T<br />2. 變身成為 super user:  sudo -s<br />當然，要打密碼。<br />3. 打開原本沒打開的服務, 包括  dbus 和 bluetooth:<br />/etc/init.d/dbus start<br />/etc/init.d/bluetooth start<br />4. 差不多了！試試打開手機的藍芽，然後再輸入這指令:<br />hcitool scan<br />應該會找到手機，顯示為 "xx:xx:xx:xx:xx:xx PhoneName"。<br /><br />但是配對... 因為 Eee PC 沒有 gnome 也沒有 kde, 沒程式做 GUI 配對，只能在 /etc/bluetooth/hcid.conf 裡面寫一個 pin 碼來配對用。<br /><br />配對指令(前者是要連線才配對，後者是先配對):<br />rfcomm bind xx:xx:xx:xx:xx:xx<br />rfcomm connect xx:xx:xx:xx:xx:xx<br />配對了以後就能用 wvdial 連線上網了，但是 Eee PC 沒有 wvdial 套件，要拿 debian 4.0 的 deb 包暫用。<br /><br />wvdial 的設定跟普通 modem 差不多, 在 /etc/wvdial.conf<br /><br />[Modem0]<br />Modem = /dev/rfcomm0<br />Baud = 115200<br />SetVolume = 0<br />Dial Command = ATDT<br />Init1 = ATZ<br />Init3 = ATM0<br />FlowControl = crtscts<br /><br />[Dialer utms]<br /> Username = guest<br /> Password = guest<br /> Phone = *99***1#<br /> Stupid Mode = 1<br /> Inherits = Modem0<br /><br /><br />配對不到的話 ,要修正 /etc/bluetooth/hcid.conf:<br /><br />options {<br />autoinit yes;<br />security user;<br />pairing multi;<br />}<br /><br />device {<br />name "%h";<br />class 0x3e0100;<br />iscan enable; pscan enable;<br />lm accept;<br />lp rswitch,hold,sniff,park;<br />auth enable;<br />encrypt enable;<br />}

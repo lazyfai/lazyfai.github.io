@@ -1,0 +1,13 @@
+---
+layout: post
+title: XEPC.org 還原光碟
+date: '2008-04-26T22:05:00.000+08:00'
+author: Fai Wong
+tags:
+- eee
+modified_time: '2008-04-26T22:06:00.856+08:00'
+blogger_id: tag:blogger.com,1999:blog-8503500.post-8090425380863069798
+blogger_orig_url: http://lazyfai.blogspot.com/2008/04/xepcorg.html
+---
+
+XEPC.org 定制版本(基於華碩釋出的還原光碟) 的 Eee PC 還原光碟來了。<br />2G, 4G, 8G, Surf 跟 non-Surf 版本全部通用，不過9寸版本的支援要等一陣子有。<br />定制版本的還原光碟特點如下:<br /><ul><br />    <li>包含了原來華碩的系統，再加上一直到四月中的所有更新。</li><br />    <li>已經加入了 XEPC.org 的所有升級及修正，包括 pcmanfm, gpicview, sakura 等好用小工具。</li><br />    <li>使用 squashfs 配合原來的 unionfs 技術，把第一分區壓至<a href="http://www.xepc.org/2008/04/13/xepc-compressed-fs/">1G 大小</a>，因此 2G 版本也可以有 Java 等功能！</li><br />    <li>不過因為使用了<a href="http://www.xepc.org/2008/04/15/eeepc-file-compression/">唯讀的壓縮技術 </a>，XEPC.org 升級光碟不能在這版本下使用，但是一般的華碩和XEPC升級(apt-get install xxx)還是適用。</li><br />    <li>因為要節省空間，安裝後不會有“完整桌面”模式，想要這模式的話可以在安裝之後用 apt-get install kicker ksmserver 來安裝</li><br /></ul><br />使用方法就是跟原來華碩的還原光碟一樣。<br /><br />不過這個版本只適用於中文及英文語系，其他語系的用戶要再等一下囉。<br />下載地址:<br /><a href="http://www.sourceforge.net/projects/xepc/">http://www.sourceforge.net/projects/xepc/</a><br />原華碩版本的網站:<br /><a href="http://sourceforge.net/projects/eeecommunity/">http://sourceforge.net/projects/eeecommunity/</a><br /><br />MD5檢測碼: XEPC-Recovery-20080426.iso - eb9a2dd8098d9ac18520aee75c8a7713   <br /><br /><strong>由網友 Ren 提供，放到 USB DISK 的方法</strong><br /><br />在下沒有光碟機，又好想裝瘦身版…就把光碟版做了點小改造，以USB碟成功還系統。分享給同樣等不及的網友，使用步驟如下︰<br />1. 將光碟內容複製到usb disk中。<br />2. 下載 <a href="http://pic.xepc.org/fai/post/epc.zip">epc.zip</a>，解壓縮至usb disk中。<br />3. 使用syslinux（3.62版以上）將usb disk做成開機碟。<br />4. 使用usb disk開機，之後步驟同還原光碟。<br /><br />在下只有修改initrd.gz中，將P701L.img的來源由光碟（/dev/sr0）改成usb disk（/dev/sdc1）。一般而言usb disk會掛在sdc（SSD→sda，讀卡機→sdb），若非如此則無法成功。<br />另外epc.zip中的syslinux.exe為3.62版，是從clonezilla中取出。在windows下執行makeboot.bat即可將usb disk做成開機碟。<br /><br /><em>註: XEPC-Recovery-20080426.iso 已經加入 Ren 站友的 USB 支援，只要把 ISO 中所有檔案放入 USB，再跑 makeboot.bat 即可。</em>

@@ -1,0 +1,13 @@
+---
+layout: post
+title: AIGLX on Ubuntu on iBook
+date: '2006-11-03T18:00:00.000+08:00'
+author: Fai Wong
+tags:
+- linux
+modified_time: '2006-11-03T18:04:20.502+08:00'
+blogger_id: tag:blogger.com,1999:blog-8503500.post-46406291534581824
+blogger_orig_url: http://lazyfai.blogspot.com/2006/11/aiglx-on-ubuntu-on-ibook.html
+---
+
+Install Ubuntu 6.10 on iBook using firewire harddisk, it is running fine, but when I look for AIGLX installation, seems there is no powerpc packages for me, so I use pbuilder to build packages for beryl and emerald myself.<br />The beryl package's dependency is not very good, after some modifications it can build, but, the same problem as FC6, blue screen after running beryl-manager, so I need to repackage xserver too.<br />Using the same patch, I made xserver and it is working very fine now!<br />On the other hand, FC6 can use my firewire harddisk without crashing now, seems due to partitioning problem before, or some reiserfs related bugs, as the home partition on my home desktop is reiserfs and encountered nearly same problem in FC6...

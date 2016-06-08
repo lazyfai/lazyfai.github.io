@@ -1,0 +1,13 @@
+---
+layout: post
+title: REISUB
+date: '2007-09-17T17:18:00.000+08:00'
+author: Fai Wong
+tags:
+- linux
+modified_time: '2007-09-17T17:21:40.680+08:00'
+blogger_id: tag:blogger.com,1999:blog-8503500.post-8337054596194042729
+blogger_orig_url: http://lazyfai.blogspot.com/2007/09/reisub.html
+---
+
+<a style="font-weight: bold;" href="http://fosswire.com/2007/09/08/fix-a-frozen-system-with-the-magic-sysrq-keys/">Fix a Frozen System with the Magic SysRq Keys</a><br /><span style="font-weight: bold;">by Jacob</span><br /><br />You finally got your Linux environment to crash. Ctrl+Alt+Backspace does nothing, nor do the F-keys. You know you shouldn’t have installed that bad driver, but you did it anyway.<br /><br />So you reach for the power button.<br /><br /><span style="font-weight: bold;">Stop.</span><br /><br />Mashing in the power button to reboot could cause a problem if your hard drive is still being written to, and usually causes more problems than it solves. The Linux kernel includes a secret method of restarting your PC should it ever stop doing its job.<br /><br />  1. Hold down the <span style="font-weight: bold;">Alt</span> and <span style="font-weight: bold;">SysRq (Print Screen)</span> keys.<br />  2. While holding those down, type the following in order. Nothing will appear to happen until the last letter is pressed: <span style="font-weight: bold;">REISUB</span><br />  3. Watch your computer reboot magically.<br /><br />What the individual keys do in that sequence are not as important as what it does as a whole: stops all programs, unmounts all drives, and reboots. A lot safer than just cutting the power.<br /><br />Here it is again: <span style="font-weight: bold;">REISUB</span>. Remember that, as it will save you a lot of time when you are configuring a system and something gets messed up. Need a mnemonic? Try <span style="font-weight: bold;">Raising Elephants Is So Utterly Boring</span>.<br /><br />As an aside, don’t try this if you just want to reboot. A normal reboot, if it can be done, should always be used instead of the REISUB keys.<br /><br /><span style="font-weight: bold;">R-E-I-S-U-B.</span>

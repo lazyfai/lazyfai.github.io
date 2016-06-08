@@ -1,0 +1,13 @@
+---
+layout: post
+title: XEPC 升級光碟 - 放到 USB 隨身碟的方法
+date: '2008-03-23T00:56:00.003+08:00'
+author: Fai Wong
+tags:
+- eee
+modified_time: '2008-03-24T14:53:09.049+08:00'
+blogger_id: tag:blogger.com,1999:blog-8503500.post-452305618970888597
+blogger_orig_url: http://lazyfai.blogspot.com/2008/03/xepc-usb.html
+---
+
+忙了幾個星期，終於有時間研究用 USB 隨身碟來做 XEPC 升級的媒體了，下一版本的升級光碟會把需要的工具和設定都放進去，所以，下一版本的升級光碟可以直接燒錄到光碟，也可以放到 USB 隨身碟上使用。<br />想搶先試用的可以抓下這個一<a href="http://downloads.sourceforge.net/xepc/usb-upgrade-20080324.zip">壓縮檔</a>，到下一版就不需要做 unzip 一步。<br /><br />方法如下（要有一點點 Linux 基本認識）:<br />1. 假設已經把 XEPC 升級光碟的 ISO 檔和上面的 usb-upgrade-20080324.zip 下載了在桌機的 /root，您的檔案名字跟例子中的可能不同<br /><br />2. 先把升級光碟的 ISO 檔裝載(mount)起來，如果是 Linux 的話就是用 loop mount了，用法是 <strong>mount -o loop /root/xepc.iso /mnt</strong>:<br /><img src="http://pic.xepc.org/fai/post/xepc-usb/xepc-usb-0.png" alt="xepc-usb-0" /><br /><br />3. 裝載好以後，在 /mnt 中應該可以看到光碟的內容。<br /><br />4. 把一隻已經用 VFAT/FAT32 格式化的 USB 隨身碟插進桌機，這時候應該會自動裝載在 /media 的一個目錄，這個跟你的 USB 隨身碟的 Label 有關，我例子中的是 "USB", 所以會出現在 <strong>/media/USB/</strong>，不知道的可以輸入 <strong>mount</strong> 指令看看，先記下最開頭的 /dev/xxx 名字，到後來有用的，這例子中是 /dev/sdc1 。<br /><img src="http://pic.xepc.org/fai/post/xepc-usb/xepc-usb-1.png" alt="xepc-usb-1" /><br /><br />5. 如果在 Eee PC 上面製造這 USB 隨身碟，請先用<strong>sudo apt-get install rsync</strong> 安裝 rsync 套件，或者用 zip 檔中的 deb 包。<br />來用指令把 /mnt 內的所有檔案拷貝到 /media/USB 中，用 <strong>rsync -av /mnt/ /media/USB/</strong> 指令即可:<br /><img src="http://pic.xepc.org/fai/post/xepc-usb/xepc-usb-2.png" alt="xepc-usb-2" /><br /><br />6. 拷貝完以後，進入 /media/USB 目錄，把剛才的 zip 檔案解壓到 /media/USB/ 中，完成後可以用 <strong>ls</strong> 指令確定內容:<br /><img src="http://pic.xepc.org/fai/post/xepc-usb/xepc-usb-3.png" alt="xepc-usb-3" /><br /><img src="http://pic.xepc.org/fai/post/xepc-usb/xepc-usb-4.png" alt="xepc-usb-4" /><br /><br />7. 如果在 Eee PC 上面製造這 USB 隨身碟，請先用 <strong>sudo apt-get install mtools syslinux</strong> 安裝 mtools  和 syslinux 套件，或者用 zip 檔中的 deb 包，然後就可以用 <strong>syslinux /dev/sdc1</strong> 指令把 USB 隨身碟設成可開機，用桌機 Linux 的話請用相應的方法安裝 syslinux。<br />（注意，如果在第2步看到的不是 /dev/sdc1, 請換成你看到的設備名字）。<br /><br />8. 最後把 ISO 檔跟 USB 都卸載掉，用 <strong>umount</strong> 指令:<br /><img src="http://pic.xepc.org/fai/post/xepc-usb/xepc-usb-5.png" alt="xepc-usb-5" /><br /><br />9. umount 完成以後，用這支 USB 隨身碟開機就可以做 XEPC.org 的大升級了。<br /><br />如果是用 Windows 做的話，方法一樣，都是找工具把 升級光碟的 ISO 檔打開，把內容都拷貝到 USB 隨身碟中，然後在終端機 (<strong>cmd.exe</strong>) 中，到 USB 隨身碟的目錄底下（假設是 E:)，跑 <strong>syslinux E:</strong> 指令就可以了。

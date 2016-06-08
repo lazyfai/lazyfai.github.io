@@ -1,0 +1,14 @@
+---
+layout: post
+title: aMSN for Eee PC
+date: '2008-01-05T12:46:00.000+08:00'
+author: Fai Wong
+tags:
+- eee
+modified_time: '2008-01-05T13:22:33.959+08:00'
+thumbnail: http://1.bp.blogspot.com/_ZwYFGbHC6Q8/R38ME8EctJI/AAAAAAAABJ4/6ONf-t_5LlE/s72-c/shot7.png
+blogger_id: tag:blogger.com,1999:blog-8503500.post-9201358556521929842
+blogger_orig_url: http://lazyfai.blogspot.com/2008/01/amsn-for-eee-pc.html
+---
+
+[Xepc repository 更新公告]<br />pic.xepc.org 中的軟件庫已過時，修改 sources.list 改成這句：<br />deb http://updates.xepc.org/ p701 main<br /><br />安裝 aMSN for Eee PC:<br />先修改好 /etc/apt/sources.list 指向 updates.xepc.org<br />然後用 sudo apt-get install amsn 就可以安裝 aMSN 了。<br />視像會議功能的使用方法，跟 skype 2.0 beta 一樣，<br />就是在終端機中，輸入以下幾行，先打開攝像機再開 amsn:<br />1. sudo -s<br />2. sudo /sbin/modprobe uvcvideo<br />3. echo 1 &gt; /proc/acpi/asus/camera<br />4. exit<br />5. amsn<br />然後就可以用視像會議了！<br /><br /><a onblur="try {parent.deselectBloggerImageGracefully();} catch(e) {}" href="http://1.bp.blogspot.com/_ZwYFGbHC6Q8/R38ME8EctJI/AAAAAAAABJ4/6ONf-t_5LlE/s1600-h/shot7.png"><img style="cursor: pointer;" src="http://1.bp.blogspot.com/_ZwYFGbHC6Q8/R38ME8EctJI/AAAAAAAABJ4/6ONf-t_5LlE/s320/shot7.png" alt="" id="BLOGGER_PHOTO_ID_5151849777718932626" border="0" /></a>

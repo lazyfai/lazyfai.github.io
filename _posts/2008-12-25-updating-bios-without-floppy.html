@@ -1,0 +1,13 @@
+---
+layout: post
+title: Updating BIOS without Floppy
+date: '2008-12-25T10:41:00.002+08:00'
+author: Fai Wong
+tags:
+- linux
+modified_time: '2008-12-25T10:44:21.368+08:00'
+blogger_id: tag:blogger.com,1999:blog-8503500.post-4517617841559316042
+blogger_orig_url: http://lazyfai.blogspot.com/2008/12/updating-bios-without-floppy.html
+---
+
+My desktop doesn't have floppy drive (and I think most of the people don't have too).<br />But my desktop BIOS has update, how to update it without using floppy?<br />We can use GRUB to load the disk image into ram disk to run the BIOS update. Method is:<br />http://www.thinkwiki.org/wiki/BIOS_Upgrade#Updating_via_Grub_and_a_Floppy_Image<br />Bascially GRUB will assign a ram disk and fill with the image file, and then boot using that as if it is a floppy disk.

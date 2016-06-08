@@ -1,0 +1,13 @@
+---
+layout: post
+title: Fedora Core 6
+date: '2006-10-25T17:50:00.000+08:00'
+author: Fai Wong
+tags:
+- linux
+modified_time: '2006-10-25T18:02:58.932+08:00'
+blogger_id: tag:blogger.com,1999:blog-8503500.post-3017358325960879566
+blogger_orig_url: http://lazyfai.blogspot.com/2006/10/fedora-core-6.html
+---
+
+<a onblur="try {parent.deselectBloggerImageGracefully();} catch(e) {}" href="http://fedoraproject.org/static-tmp/Fedoramain_files/WikiGraphics.jpg"><img style="cursor: pointer; width: 135px; height: 48px;" src="http://fedoraproject.org/static-tmp/Fedoramain_files/WikiGraphics.jpg" alt="" border="0" /></a><br /><br />Long time since last time I tried RedHat products, maybe 5 years or so.<br />Today (last night, to be exact) Fedora Core 6 released and I found it got some fun new features like aiglx support out of the box, and GNOME 2.16, at the same time, my iBook's SUSE 10 seems not working very fine esp. updating, so I gave fedora a try today.<br />First install, I set the partitions myself, but after installation it cannot bootup, i guessed it should be due to missing Apple bootstrap partition for boot loader. So I reboot it again with the installation disc, and this time I let the installation program do the partitioning itself, it setup the Apple bootstrap partition correctly and it CAN boot!<br />Basically, after installation, everything works except:<br />1. keyboard shortcut for volume control and eject disc, this need manually set in GNOME, and for brightness control, seems the system and also GNOME respond to my keystroke, that made the behavior a little bit strange, but OK, at least it works.<br />2. wireless network, due to missing firmware files from Airport Extreme, I got the fwcutter program from bcm43xx project and got the firmware files from Mac OS driver, it works afterwards, but NetworkManager doesn't work, seems it assume the network is unencrypted, and ignore my configuration at all.<br />3. Power management didn't work, under SELinux, some files has protection and even the system itself cannot read/write/access, when SELinux was disabled, it worked, seems need some study to make power management works under SELinux, temporary workaround is to chmod 666 /dev/pmu.<br />4. Firewire didn't work, tried 3 times, once connected, it crashed with a kernel debugger like screen. I guessed it was due to the HFS+ partition for Mac OS X on the harddisk box, but it was not the reason, because there was no problem when using the internal harddisk's HFS+ partition. So the reason should be due to sbp2 driver or ohci1394 driver, fix it later.<br />Basically, under GNOME, all distribution (even OpenSolaris, FreeBSD) looks very similar, and that's very good.<br />But I still like slackware and gentoo more. :)

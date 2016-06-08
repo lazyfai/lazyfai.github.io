@@ -1,0 +1,13 @@
+---
+layout: post
+title: Ganglia Monitoring System
+date: '2007-06-04T21:13:00.000+08:00'
+author: Fai Wong
+tags:
+- work
+modified_time: '2007-06-04T21:19:11.864+08:00'
+blogger_id: tag:blogger.com,1999:blog-8503500.post-7581580765777755420
+blogger_orig_url: http://lazyfai.blogspot.com/2007/06/ganglia-monitoring-system.html
+---
+
+<a href="http://ganglia.sourceforge.net/">Ganglia</a> is a very light weight monitoring system for monitoring computer resources, it is mainly used in cluster environment to monitor the health of each node in a cluster.<br />Ganglia has 3 component, gmond, an information collecting daemon, gmetad, agent for collecting machine data for the machine it is running on, and a php web interface to see the data.<br />How it works?<br />1. gmond needs a configuration file /etc/gmond.conf, in the file, it defines the cluster name and location and to collect what kind of data from this host. This daemon need to be ran on every machines in the cluster.<br />2. gmetad needs a configuration file /etc/gmetad.conf, the file has the host list of the cluster, and the daemon will keep polling those hosts to get their status and various other information and keep in a rrd database.<br />3. the web interface basically read the stored data and present to the system administrator in a nice way.<br />Let me run them for a whole night and see any good information tomorrow.

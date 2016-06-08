@@ -1,0 +1,15 @@
+---
+layout: post
+title: Eee PC 之Java中文顯示
+date: '2007-11-15T09:14:00.000+08:00'
+author: Fai Wong
+tags:
+- linux
+- eee
+modified_time: '2007-11-16T00:20:54.903+08:00'
+thumbnail: http://3.bp.blogspot.com/_ZwYFGbHC6Q8/Rzud5ExxMgI/AAAAAAAAA58/NhGnaF8agkM/s72-c/eeepc-java-chinesse
+blogger_id: tag:blogger.com,1999:blog-8503500.post-2591034640026262903
+blogger_orig_url: http://lazyfai.blogspot.com/2007/11/www.html
+---
+
+[同時張貼於 www.xepc.org]<br /><br />使用Eee PC 去看中文的 Java網頁，最常遇到的問題就是中文字都變成了方格，這個問題在很多 Linux distributions 上也有的，Eee PC 當然也不例外，但不用著急去找什麼字型啊，新版 Java 來用，因為問題其實在字型設定而已。<br />研究了一會兒，找到方法解決 Java 顯示不到中文的問題了:<br />1. 開終端機和變身啦 (Ctrl-Alt-T, 再輸入 sudo -s)<br />2. 進入Java 字型目錄: cd /usr/lib/jvm/java-1.5.0-sun/jre/lib/fonts/<br />3. 這個目錄就是 Java 程式使用的字型檔案所在，但是這裡面並沒有中文字型，Java也不懂自己去找，所以我們要幫幫它一下，弄一個符號連結到系統中的中文字型: ln -s /usr/share/fonts/truetype/arphic/umin08.ttf<br />4. 再來就是更新字型的快取了，執行2個指令: mkfontscale 和 mkfontdir<br />5. 確定一下字型有沒有加到字型快取中: grep umin fonts.dir<br />6. 有10多行的顯示出來的話就正常了，現在可以試試打開 Java 控制台: /usr/lib/jvm/java-1.5.0-sun/jre/bin/ControlPanel<br />7. 現在應該可以在 Java 程式中看到美美的(?)中文字型了。<br />8. 如果還是不能，可以修改 /usr/lib/jvm/java-1.5.0-sun/jre/lib/fontconfig.properties,<br />把在第5部顯示出來的字型(應該是 -arphic-uming 什麼什麼) 取代原來的<br />-misc-ar pl shanheisun uni-xxxxxx<br />只 search &amp; replace "-misc-ar pl shanheisun uni" 這段就可以，後面的保留。<br /><br /><a onblur="try {parent.deselectBloggerImageGracefully();} catch(e) {}" href="http://3.bp.blogspot.com/_ZwYFGbHC6Q8/Rzud5ExxMgI/AAAAAAAAA58/NhGnaF8agkM/s1600-h/eeepc-java-chinesse"><img style="cursor: pointer;" src="http://3.bp.blogspot.com/_ZwYFGbHC6Q8/Rzud5ExxMgI/AAAAAAAAA58/NhGnaF8agkM/s320/eeepc-java-chinesse" alt="" id="BLOGGER_PHOTO_ID_5132869804179403266" border="0" /></a>

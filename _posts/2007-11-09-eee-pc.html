@@ -1,0 +1,13 @@
+---
+layout: post
+title: Eee PC 小眼睛研究
+date: '2007-11-09T12:35:00.000+08:00'
+author: Fai Wong
+tags:
+- eee
+modified_time: '2007-11-09T12:40:48.917+08:00'
+blogger_id: tag:blogger.com,1999:blog-8503500.post-8458401699279279533
+blogger_orig_url: http://lazyfai.blogspot.com/2007/11/eee-pc.html
+---
+
+<p>Eee PC 的小眼睛好像都只能用來自拍，MSN不能用，Skype也不能用。</p><p>最近 Linux 的 Skype 2.0 beta 出來了，支援視像，試一下在 Eee PC 安裝，但是報錯，沒找到小眼睛。</p><p>好 奇之下打開 Eee PC 原來的攝像機程式，又可以用啊，真奇怪。看一下， 原來它是用 UCVideo 的驅動程式，再去看看網路上的資料，http://www.unicap-imaging.org/ 上說它是支援 video4linux2的，應該可以在 skype用。</p><p>我再到 Terminal 中看看 dmesg 的結果，終於明白了。在打開UCView 程式之前，這個小眼睛是"Disconnected"的，打開之後才"插上" USB埠，究竟怎樣可以手動的把這個動作做到呢?能夠的話，這個小眼睛就可以用在其他地方了！</p><p>Update: 找到方法了!  只要 echo 1 > /proc/acpi/asus/camera就能用。</p>[同時發佈到 www.xepc.org ]

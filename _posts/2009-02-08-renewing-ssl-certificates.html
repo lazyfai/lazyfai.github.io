@@ -1,0 +1,13 @@
+---
+layout: post
+title: Renewing SSL certificates
+date: '2009-02-08T22:18:00.002+08:00'
+author: Fai Wong
+tags:
+- linux
+modified_time: '2009-02-08T22:26:24.899+08:00'
+blogger_id: tag:blogger.com,1999:blog-8503500.post-1439643585651395626
+blogger_orig_url: http://lazyfai.blogspot.com/2009/02/renewing-ssl-certificates.html
+---
+
+As my home server's SSL certificates are going to expire soon, I need to renew them.<br />But it has been over one year since the certificates are created, I've forgotten how to make them, so I've done some research, to be record, here are the steps:<br /><span class="code">1. Generating RSA private key<br />openssl genrsa -des3 -out server.key 1024</span><br />2. Making certificate request<br />openssl req -new -key server.key -out server.csr<br />3. Go to CACert.org to generate the certificate, using the server.csr file.<br />4. Or self sign using openssl command<br />openssl  x509 -req -days 365 -in server.csr -signkey server.key -out server.crt<br />Then a certificate file is generated.<br /><br />To use the certificate in Apache:<br /><span class="code">SSLCertificateFile    /etc/apache2/ssl/server.crt<br />SSLCertificateKeyFile /etc/apache2/ssl/server.pem</span><br /><br />To use the certificate in Postfix:<br />smtpd_tls_CAfile = /etc/ssl/postfix/cacert.pem<br />smtpd_tls_cert_file=/etc/ssl/postfix/home.cert<br />smtpd_tls_key_file=/etc/ssl/postfix/home.pem<br /><br />To use the certificate in Courier IMAP:<br />Make a server.key, with contents from server.crt and server.pem combined, like:<br />-----BEGIN CERTIFICATE-----<br /> [encoded data]<br />-----END CERTIFICATE-----<br />-----BEGIN RSA PRIVATE KEY-----<br /> [encoded data]<br />-----END RSA PRIVATE KEY-----<br />Then configure in imapd-ssl<br />TLS_CERTFILE=/etc/courier-imap/imapd.crt
