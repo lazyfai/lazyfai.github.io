@@ -15,5 +15,8 @@ url: "http://lazyfai.github.io" # the base hostname & protocol for your site
 twitter_username: lazyfai
 github_username:  lazyfai
 
+# Don't put the time in permalinks
+permalink: /:title/
+
 # Build settings
 markdown: kramdown
