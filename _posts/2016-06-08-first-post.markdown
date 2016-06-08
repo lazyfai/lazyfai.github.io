@@ -1,7 +1,8 @@
 ---
 layout: post
 title:  "第一篇文章"
-categories: 我
+categories: 我自己
+tags: 我自己
 ---
 ## This is my first post in github pages with Jekyll.
 
