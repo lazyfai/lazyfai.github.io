@@ -19,5 +19,8 @@ github_username:  lazyfai
 # permalink: /:categories/:year/:month/:day/:title.html
 permalink: /:year:month:day/:title/
 
+# 5 posts per page
+paginate: 5
+
 # Build settings
 markdown: kramdown
