@@ -6,10 +6,10 @@
 # 'jekyll serve'. If you change this file, please restart the server process.
 
 # Site settings
-title: Fai's page
+title: Fai 的網站
 email: lazyfai@gmail.com
 description: > # this means to ignore newlines until "baseurl:"
-  I don't have description yet
+  未諗到有咩嘢description住。
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "http://lazyfai.github.io" # the base hostname & protocol for your site
 twitter_username: lazyfai
