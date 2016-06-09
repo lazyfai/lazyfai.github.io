@@ -9,7 +9,7 @@
 title: Fai 的網站 2016
 email: lazyfai@gmail.com
 description: > # this means to ignore newlines until "baseurl:"
-  未諗到有咩嘢description住。
+  純文字討論.txt 
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "http://lazyfai.github.io" # the base hostname & protocol for your site
 twitter_username: lazyfai

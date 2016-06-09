@@ -3,7 +3,11 @@ layout: page
 title: "關於"
 permalink: /about/
 ---
-# 關於 #
+# 關於我 #
+
+我在香港工作, 主要從事有關 [AWS](http://aws.amazon.com/) 相關的項目, 我會在這裡分享一下新的資訊
+
+# 關於這個主題 #
 
 這是Jekyll的基本主題。你可以在jekyllrb.com找到有關自定義主題的信息，以及基本的Jekyll使用文檔
 
