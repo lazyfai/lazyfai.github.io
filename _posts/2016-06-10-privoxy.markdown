@@ -1,0 +1,50 @@
+---
+layout: post
+title:  "小米路由器Mini 改 OpenWRT 加 Privoxy"
+categories: technical
+tags: router, openwrt
+---
+買了小米路由器Mini 差不多一年了，大部份時間只用來閒著，
+
+雖然知道OpenWRT可以用在這台149元的路由器上，但是都沒時間搞，
+
+昨天在網上閒逛看到這篇[教學][article1]，同時也想嘗試一下
+
+是不是真的可以看到大陸地區的電影，結果自己刷好了OpenWRT，
+
+用了OpenWRT官方版本的[Privoxy][privoxy-site]成功地“逆向翻牆”。
+
+步驟跟上面的網站差不多：
+
+* 先在小米路由器Mini刷上開發版固件
+
+* 登記這台路由器到小米戶口
+
+* 在小米網站[解鎖SSH][router-unlock]
+
+* 把SSH固件刷進去(抄到 USB，按著 reset 鍵重開機)
+
+* 到 OpenWRT 網站下載 MT7620 用的[固件][openwrt-download]
+
+* SCP 到小米路由器
+
+* 刷到 "OS1" 分區 (mtd 指令)
+
+* 重開機進入 OpenWRT 頁面，安裝 privoxy 和 luci-app-privoxy
+
+* 把教學中的 cnfilter.filter, cnfilter.action, cnforward.action, basehosts 放到 /etc/privoxy
+
+* trust 不用抄, 因為做 transparent proxy
+
+* 參照教學中的改動，設定好 Privoxy 和 dnsmasq 指到這些檔案
+
+* OpenWRT 把 TCP 80 打開
+
+* OpenWRT 把 TCP 80 轉到 8118 (iptables -t nat -A PREROUTING -p tcp --dport 80 -j REDIRECT --to-ports 8118)
+
+* 連到這台小米路由器的機器就能自動翻牆了！
+
+[article1]: http://blog.icece.tw/Unblock-Youku-on-OpenWRT-or-Pandorabox-Router
+[privoxy-site]: https://www.privoxy.org/
+[router-unlock]: http://d.miwifi.com/rom/ssh
+[openwrt-download]: https://downloads.openwrt.org/chaos_calmer/15.05.1/ramips/mt7620/
