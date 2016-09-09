@@ -24,4 +24,8 @@ paginate: 5
 pagination_path: posts/page:num
 
 # Build settings
+highlighter: rouge
 markdown: kramdown
+kramdown:
+  input: GFM
+  syntax_highlighter: rouge
