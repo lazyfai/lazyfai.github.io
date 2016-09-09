@@ -5,9 +5,8 @@ categories: RaspberryPi
 tags: RaspberryPi, Kedei, LCD, GPIO
 ---
 ## For my reference, here is the layout of the Kedei 3.5 inch LCD for Raspberry Pi
-### [Kedei LCD Website][kedei-site]
 
-### LCD Panel Pin => Raspberry Pi Pin
+### [Kedei LCD Website][kedei-site]
 
 | Kedei LCD Pin | RPi Pin | RPi Pin Name |
 |---------------|---------|--------------|
