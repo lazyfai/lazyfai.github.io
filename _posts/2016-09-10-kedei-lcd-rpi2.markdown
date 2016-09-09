@@ -8,15 +8,16 @@ tags: RaspberryPi, Kedei, LCD, GPIO
 ### [Kedei LCD Website][kedei-site]
 
 ### LCD Panel Pin => Raspberry Pi Pin
-|LCD Panel Pin|RPi Pin number|Pin type|
-|---|---|---|
-|GND|20|GND|
-|IRQ|22|GPIO25|
-|T_CS|24|GPIO8|
-|L_CS|26|GPIO7|
-|MOSI|19|GPIO10|
-|MISO|21|GPIO9|
-|CLK|23|GPIO11|
-|GND|25|GND|
+
+| Kedei LCD Pin | RPi Pin | RPi Pin Name |
+|---------------|---------|--------------|
+| GND           | 20      | GND          |
+| IRQ           | 22      | GPIO25       |
+| T_CS          | 24      | GPIO08       |
+| L_CS          | 26      | GPIO07       |
+| MOSI          | 19      | GPIO10       |
+| MISO          | 21      | GPIO09       |
+| CLK           | 23      | GPIO11       |
+| GND           | 25      | GND          |
 
 [kedei-site]: http://www.kedei.net/
