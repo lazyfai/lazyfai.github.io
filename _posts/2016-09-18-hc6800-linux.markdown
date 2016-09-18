@@ -6,6 +6,7 @@ tags: SBC, STCFlash
 ---
 ## 在淘寶買了一台新的單片機 HC6800-ES (STC12C2052) 但附送的都是 Win 平台的東西, 所以要找方法在 Linux 下燒錄
 ===
+
 1. Install sdcc either from [website][sdcc-website] or by "apt" (Debian/Ubuntu) or "dnf" (Fedora)
 
 2. Install python-serial package
@@ -13,7 +14,8 @@ tags: SBC, STCFlash
 3. Install STCFlash (Python tool for flashing to STC12C2052) from [repository][stcflash-repo]
 
 4. Write a simple blink.c for testing
-```shell
+
+```
 #include <8052.h>
 __sbit __at 0x80 LED;
 // or
@@ -34,17 +36,20 @@ void main()
 ```
 
 5. Compile to BIN file
-```shell
+
+```
 sdcc blink.c 
 ```
 
 6. Convert the format to HEX
-```shell
+
+```
 objcopy -Iihex -Obinary blink.hex blink.bin
 ```
 
 7. Flash to the device after plugging in USB and reset
-```shell
+
+```
 python stcflash.py blink.hex
 ```
 
