@@ -27,21 +27,21 @@ tags: SBC, STCFlash
 
     {
 
-        unsigned int i=0;
+      unsigned int i=0;
 
-        while (1)
+      while (1)
 
-        {
+      {
 
-            for (i=0; i<10000; i++);
+        for (i=0; i<10000; i++);
 
-            LED = 0;
+        LED = 0;
 
-            for (i=0; i<10000; i++);
+        for (i=0; i<10000; i++);
 
-            LED = 1;
+        LED = 1;
 
-        }
+      }
 
     }
     ```
