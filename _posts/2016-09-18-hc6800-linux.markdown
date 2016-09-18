@@ -15,6 +15,7 @@ tags: SBC, STCFlash
 3. Install STCFlash (Python tool for flashing to STC12C2052) from [repository][stcflash-repo]
 
 4. Write a simple blink.c for testing
+
 ```
 #include <8052.h>
 __sbit __at 0x80 LED;
@@ -35,14 +36,17 @@ void main()
 }
 ```
 5. Compile to BIN file
+
 ```
 sdcc blink.c 
 ```
 6. Convert the format to HEX
+
 ```
 objcopy -Iihex -Obinary blink.hex blink.bin
 ```
 7. Flash to the device after plugging in USB and reset
+
 ```
 python stcflash.py blink.hex
 ```
