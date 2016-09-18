@@ -6,8 +6,6 @@ tags: RaspberryPi, Waveshare, LCD, GPIO
 ---
 ## It is much simpler than Kedei LCD as it is supported by fbtft and device overlay
 
-===
-
 1. Update RPi kernel to latest by "rpi-update"
 
 2. Clone the waveshare device tree overlay git [repository][waveshare-dtoverlays]

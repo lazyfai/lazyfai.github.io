@@ -19,11 +19,9 @@ tags: SBC, STCFlash
     __sbit __at 0x80 LED;
     // or
     // #define LED  P0_0
-    
     void main()
     {
         unsigned int i=0;
-    
         while (1)
         {
             for (i=0; i<10000; i++);
