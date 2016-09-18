@@ -18,15 +18,15 @@ tags: RaspberryPi, Waveshare, LCD, GPIO
 
 5. Ensure **SPI** is enabled in **/boot/config.txt**
 
-```shell
-dtparam=spi=on
-```
+    ```shell
+    dtparam=spi=on
+    ```
 6. Reboot and use **/dev/fb1** as the device for graphical output
 
 7. For console output, add to **/boot/cmdline**:
 
-```shell
-console=ttyAMA0,115200 fbcon=map:10 fbcon=font:ProFont6x11 consoleblank=0
-```
+    ```shell
+    console=ttyAMA0,115200 fbcon=map:10 fbcon=font:ProFont6x11 consoleblank=0
+    ```
 
 [waveshare-dtoverlays]: https://github.com/swkim01/waveshare-dtoverlays
