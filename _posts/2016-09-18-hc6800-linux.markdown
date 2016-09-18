@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "HC6800-ES 單片機 Linux 燒錄
+title:  "HC6800-ES 單片機 Linux 燒錄"
 categories: SBC
 tags: SBC, STCFlash
 ---
