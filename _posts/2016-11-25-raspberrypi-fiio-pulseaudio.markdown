@@ -47,12 +47,15 @@ tags: RaspberryPi, Audio, Music
     ```
     usb 1-1.2: Product: FiiO USB DAC K1
     ```
+
     ```
     usb 1-1.2: Manufacturer: FiiO
     ```
+
     ```
     input: FiiO FiiO USB DAC K1 as /devices/platform/soc/20980000.usb/usb1/1-1/1-1.2/1-1.2:1.0/0003:262A:100C.0001/input/input0
     ```
+
     ```
     hid-generic 0003:262A:100C.0001: input,hidraw0: USB HID v1.00 Device [FiiO FiiO USB DAC K1] on usb-20980000.usb-1.2/input0
     ```
