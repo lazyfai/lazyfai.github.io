@@ -65,15 +65,19 @@ tags: RaspberryPi, Audio, Music
     ```
     sudo pip install Mopidy-SoundCloud
     ```
+
     ```
     sudo pip install Mopidy-Youtube
     ```
+
     ```
     sudo pip install Mopidy-Tunein
     ```
+
     ```
     sudo pip install mopidy-musicbox-webclient
     ```
+
 9. 修改 **/etc/mopidy/mopidy.conf** 把聲音輸出指向 127.0.0.1 和打開 HTTP 服務
 
     \[audio\] 段落
