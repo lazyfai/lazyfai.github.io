@@ -8,10 +8,10 @@ tags: RaspberryPi, Audio, Music
 
 1. 先更新 Pi kernel, 使用 "rpi-update" 指令即可
 
-2. 安裝 pulseaudio
+2. 安裝 pulseaudio 和相關的套件
 
     ```
-    apt-get install pulseaudio
+    apt-get install pulseaudio gstreamer1.0-pulseaudio gstreamer1.0-plugins-ugly gstreamer1.0-plugins-bad
     ```
 
 3. 在 /etc/modprobe.d/ 中加一個 conf 檔案，把 snd_bcm2835 (RPi 的 onboard 音效咭)
