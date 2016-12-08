@@ -31,6 +31,7 @@ tags: RaspberryPi, OrangePi, Audio, Music
     \[audio\] 段落
 
     ```output = alsasink device=hw:2,0```
+
     ```mixer = alsamixer```
 
 [mopidy-site]: http://mopidy.com/
