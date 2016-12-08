@@ -1,0 +1,36 @@
+---
+layout: post
+title:  "在 Raspberry Pi / Orange Pi 上使用 USB 音效咭播放音樂 (續)"
+categories: RaspberryPi
+tags: RaspberryPi, OrangePi, Audio, Music
+---
+## 上一次的文章講述了使用 pulseaudio 連接 USB 音效咭，但是如果想使用 USB DAC，直接使用 ALSA (不經pulseaudio) 更好
+
+1. 安裝 pulseaudio 和相關的套件
+
+    ```
+    apt-get install gstreamer1.0-alsa
+    ```
+
+2. 安裝 [mopidy][mopidy-site] 的 ALSA Mixer plugin
+
+    ```
+    sudo pip install Mopidy-ALSAMixer
+    ```
+
+3. 找出 USB DAC 的設備 id
+
+    ```
+    aplay --list-devices
+    ```
+
+   記下 USB DAC 的數字
+
+4. 修改 **/etc/mopidy/mopidy.conf** 把聲音輸出指向 alsasink 和使用 alsamixer
+
+    \[audio\] 段落
+
+    ```output = alsasink device=hw:2,0```
+    ```mixer = alsamixer```
+
+[mopidy-site]: http://mopidy.com/
