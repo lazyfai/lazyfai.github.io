@@ -34,4 +34,10 @@ tags: RaspberryPi, OrangePi, Audio, Music
 
     ```mixer = alsamixer```
 
+    \[alsamixer\] 段落
+
+    ```card = 2```
+
+    ```control = PCM```
+
 [mopidy-site]: http://mopidy.com/
